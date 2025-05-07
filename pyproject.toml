@@ -1,0 +1,17 @@
+[build-system]
+requires = ["setuptools>=42", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "dhframe"
+version = "0.1"
+description = "A graph based Denavit-Hartenberg implementation for flexible frame transformations."
+authors = [
+    {name="Garbe"},
+]
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "numpy", 
+    "sympy",
+]
