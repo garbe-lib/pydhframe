@@ -1,3 +1,4 @@
+import numpy as np
 from sympy import lambdify, Matrix, Symbol, cos, sin
 from typing import Callable
 
@@ -92,6 +93,16 @@ class Transform:
                        [-st*ca, ct*ca, sa, -d*sa],
                        [sa*st, -ct*sa, ca, -d*ca],
                        [0, 0, 0, 1]])
+
+    def __call__(self, *args):
+        """
+        Applies arguments to transformation and returns fixed matrix version.
+        """
+        if self.is_fixed:
+            return np.array(self.matrix, dtype= np.float64)
+
+        else:
+            return np.array(self.callable(*args), dtype= np.float64)
 
 class RotZ(Transform):
     """

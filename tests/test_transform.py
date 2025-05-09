@@ -1,3 +1,4 @@
+import numpy as np
 from context import dhframe
 from dhframe.transform import Transform
 from sympy import symbols
@@ -33,3 +34,12 @@ def test_transform_callable():
        [ 0.,  0.,  1.,  1.],
        [ 0.,  0.,  0.,  1.]])"""
     assert out == expected
+    
+    out2 = T(0)
+    expected2 = np.array([[ 1., -0.,  0.,  0.],
+       [ 0.,  1.,  0.,  0.],
+       [ 0.,  0.,  1.,  1.],
+       [ 0.,  0.,  0.,  1.]])
+    assert isinstance(out2, np.ndarray)
+    assert np.all(T(0) == expected2)
+    
